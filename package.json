@@ -1,0 +1,30 @@
+{
+  "name": "vaccination-center-backend",
+  "version": "1.0.0",
+  "description": "Vaccination reservation system backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanktrizz/vaccination-center-backend.git"
+  },
+  "author": "Han Kyaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanktrizz/vaccination-center-backend/issues"
+  },
+  "homepage": "https://github.com/hanktrizz/vaccination-center-backend#readme",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1"
+  }
+}
