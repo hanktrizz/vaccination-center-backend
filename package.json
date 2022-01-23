@@ -4,6 +4,9 @@
   "description": "Vaccination reservation system backend",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
+    "dev": "set NODE_ENV=development&& node src/server.js",
+    "dev-linux": "NODE_ENV=development npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "lint": "eslint --cache --fix",
