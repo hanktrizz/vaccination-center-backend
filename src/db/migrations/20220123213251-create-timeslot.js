@@ -1,23 +1,22 @@
+
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("nurses", {
+    await queryInterface.createTable("Timeslots", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      uuid: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+      slotDate: {
+        type: Sequelize.DATEONLY,
       },
-      firstName: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      slotTimeStart: {
+        type: Sequelize.INTEGER,
       },
-      lastName: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      slotBooked: {
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("nurses");
+    await queryInterface.dropTable("Timeslots");
   },
 };

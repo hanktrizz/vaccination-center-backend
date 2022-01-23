@@ -1,23 +1,19 @@
+
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("nurses", {
+    await queryInterface.createTable("roster", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      uuid: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+      dayOff: {
+        type: Sequelize.INTEGER,
       },
-      firstName: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      lastName: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      nurseId: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("nurses");
+    await queryInterface.dropTable("roster");
   },
 };
