@@ -2,21 +2,32 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Timeslots", {
+    await queryInterface.createTable("Rosters", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      slotDate: {
+      dateStart: {
+        allowNull: false,
         type: Sequelize.DATEONLY,
       },
-      slotTimeStart: {
+      dateEnd: {
+        allowNull: false,
+        type: Sequelize.DATEONLY,
+      },
+      assigned: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+      },
+      nurseId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
-      slotBooked: {
-        type: Sequelize.BOOLEAN,
+      centreId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Timeslots");
+    await queryInterface.dropTable("Rosters");
   },
 };

@@ -1,3 +1,5 @@
+
+
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
@@ -9,22 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Roster }) {
       // define association here
-      this.belongsTo(Roster, {
-        foreignKey: "nurseId",
-      });
-    }
-
-    // mask the id field and return all others
-    toJSON() {
-      return { ...this.get(), id: undefined };
+      this.hasMany(Roster);
     }
   }
   Nurse.init(
     {
-      uuid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -36,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      tableName: "nurse",
       modelName: "Nurse",
     },
   );
