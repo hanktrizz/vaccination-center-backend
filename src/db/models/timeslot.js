@@ -1,7 +1,9 @@
+
+
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Patient extends Model {
+  class Timeslot extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,28 +11,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Booking }) {
       // define association here
-      this.hasMany(Booking);
+      this.hasOne(Booking);
     }
   }
-  Patient.init(
+  Timeslot.init(
     {
-      nric: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      date: { type: DataTypes.DATEONLY, allowNull: false },
+      time: { type: DataTypes.STRING, allowNull: false },
+      status: { type: DataTypes.STRING, defaultValue: "FREE" },
+      sequence: { type: DataTypes.INTEGER },
     },
     {
       sequelize,
-      modelName: "Patient",
+      modelName: "Timeslot",
     },
   );
-  return Patient;
+  return Timeslot;
 };
