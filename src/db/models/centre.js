@@ -1,5 +1,3 @@
-
-
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
@@ -9,10 +7,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Booking, Roster }) {
+    static associate({ Booking, Roster, Timeslot }) {
       // define association here
       this.hasMany(Roster);
       this.hasMany(Booking);
+      this.hasMany(Timeslot);
     }
   }
   Centre.init(

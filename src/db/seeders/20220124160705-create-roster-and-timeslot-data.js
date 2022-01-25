@@ -1,5 +1,3 @@
-
-
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -71,7 +69,8 @@ module.exports = {
           date: records[i].dateStart,
           time: blockTimes[j],
           status: "FREE",
-          sequence: count++, // don't have nurse Id 0 in test data
+          sequence: count, // don't have nurse Id 0 in test data
+          centreId: records[i].centreId,
           createdAt: "2022-01-25T16:30:07.592Z",
           updatedAt: "2022-01-25T16:30:07.592Z",
         };

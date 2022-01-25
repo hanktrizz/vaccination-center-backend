@@ -1,5 +1,3 @@
-
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("Timeslots", {
@@ -23,6 +21,7 @@ module.exports = {
       sequence: {
         type: Sequelize.INTEGER,
       },
+      centreId: { allowNull: false, type: Sequelize.INTEGER },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
